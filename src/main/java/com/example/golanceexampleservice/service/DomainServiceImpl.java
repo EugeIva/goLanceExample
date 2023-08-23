@@ -2,6 +2,7 @@ package com.example.golanceexampleservice.service;
 
 import com.example.golanceexampleservice.client.DomainClient;
 import com.example.golanceexampleservice.client.SlackBotClient;
+import com.example.golanceexampleservice.dto.DomainRequest;
 import com.example.golanceexampleservice.model.Domain;
 import com.example.golanceexampleservice.repository.DomainRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,11 +20,14 @@ public class DomainServiceImpl implements DomainService{
     private final SlackBotClient slackBotClient;
     private final Integer OK_RESPONSE_CODE = 520;
 
-    public void saveDomain(String domainName) {
+    public void saveDomain(DomainRequest domainRequest) {
+        String domainName = domainRequest.domainUrl();
+
         Optional<Domain> oldDomainRecord = domainRepository.findByDomain(domainName);
         Integer responseCode = domainClient.check(domainName);
         Domain domain = oldDomainRecord.orElse(new Domain());
         domain.setResponseCode(responseCode);
+        domain.setDomain(domainName);
         LocalDateTime now = LocalDateTime.now();
         domain.setDateUpdated(now);
         if (oldDomainRecord.isEmpty()) {
