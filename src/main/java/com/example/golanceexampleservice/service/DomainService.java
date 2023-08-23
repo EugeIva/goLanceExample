@@ -1,4 +1,6 @@
 package com.example.golanceexampleservice.service;
 
-public class DomainService {
+
+public interface DomainService {
+    void saveDomain(String domainName);
 }

@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Log4j2
 @Component
-public class SlackBotClient {
-    public void notify(String message) {
-        // TODO
-        log.info("slack message sent: {}", message);
-
+public class DomainClient {
+    public Integer check(String domain) {
+        // todo
+        log.info("domain checked: {}", domain);
+        return 520;
     }
 }
