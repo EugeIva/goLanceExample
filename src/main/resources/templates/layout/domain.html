@@ -1,0 +1,21 @@
+<div class="starter-template">
+    <table>
+        <tr>
+            <th>id</th>
+            <th>domain</th>
+            <th>response code</th>
+            <th>Date created</th>
+            <th>Date updated</th>
+        </tr>
+
+        {{#domains}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{domain}}</td>
+            <td>{{responseCode}}</td>
+            <td>{{dateCreated}}</td>
+            <td>{{dateUpdated}}</td>
+        </tr>
+        {{/domains}}
+    </table>
+</div>

@@ -1,0 +1,9 @@
+slack:
+  token: test
+
+spring:
+  mustache:
+    suffix: .html
+  security:
+    user:
+      password: test
